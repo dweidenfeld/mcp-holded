@@ -176,14 +176,14 @@ export const payDocumentSchema = z.object({
   /**
    * Payment-method catalog id (the `/paymentmethods` id), NOT a bank/treasury id.
    * Holded's `/pay` endpoint treats the payment method and the bank link as two
-   * separate things — see `bankId`. (EXTENSIONS.md #8.)
+   * separate things — see `bankId`.
    */
   paymentmethod: z.string().optional(),
   /**
    * Bank/treasury account id to associate the resulting payment with. The `/pay`
    * endpoint does NOT accept this; the bank link can only be set via
    * `PUT /payments/{id}` afterwards, so `pay_document` performs that second step
-   * when this is provided. (EXTENSIONS.md #8.)
+   * when this is provided.
    */
   bankId: z.string().optional(),
 });
@@ -403,7 +403,7 @@ export const updatePaymentSchema = paymentIdSchema.merge(createPaymentSchema.par
     /**
      * Bank/treasury account id to link the payment to. `PUT /payments/{id}` is
      * how a payment gets associated with a bank (the `/pay` endpoint can't do
-     * it). See EXTENSIONS.md #8.
+     * it).
      */
     bankId: z.string().optional(),
     /** Contact id. Re-sent on update because PUT /payments REPLACES the record. */

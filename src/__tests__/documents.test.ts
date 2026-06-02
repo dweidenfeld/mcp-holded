@@ -959,7 +959,7 @@ describe('Document Tools', () => {
     });
   });
 
-  describe('write-safety guards (EXTENSIONS #7-#17)', () => {
+  describe('write-safety guards (silent-fail field handling)', () => {
     it('#7 rejects a line-level `account` on create (use expAccountId instead)', async () => {
       await expect(
         tools.create_document.handler({
